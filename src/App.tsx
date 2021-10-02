@@ -1,7 +1,9 @@
 import React from 'react';
 
+import InstrumentCluster from './components/InstrumentCluster';
+
 function App() {
-  return <div className="App"></div>;
+  return <InstrumentCluster />;
 }
 
 export default App;
