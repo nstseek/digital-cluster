@@ -6,6 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
+    "test:ci": "CI=true react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "eslint": "eslint .",
@@ -75,6 +76,9 @@
       "simple-import-sort",
       "import",
       "sonarjs"
+    ],
+    "ignorePatterns": [
+      "build/*"
     ],
     "rules": {
       "react/jsx-curly-brace-presence": [
