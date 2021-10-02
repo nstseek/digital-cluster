@@ -1,8 +1,8 @@
-[![CI](https://github.com/nstseek/react-template/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/nstseek/react-template/actions/workflows/node.js.yml)
+[![CI](https://github.com/nstseek/digital-cluster/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/nstseek/digital-cluster/actions/workflows/node.js.yml)
 
-# React template
+# Digital Cluster
 
-This repo aims to be a CRA template with a few addons configured
+This project aims to be a Digital cluster implementation inspired in [AMG GTR progressive digital cluster](https://youtu.be/xdTVPLilF3w?t=716)
 
 # Create React App
 
