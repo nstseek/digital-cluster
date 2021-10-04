@@ -1,3 +1,3 @@
-const degreeToRadians = (degrees: number) => Number((degrees * (Math.PI / 180)).toPrecision(4));
+const degreeToRadians = (degrees: number) => degrees * (Math.PI / 180);
 
 export default degreeToRadians;
