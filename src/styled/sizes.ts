@@ -4,31 +4,25 @@
 export const sizeFactor = 0.6;
 
 /**
- * Cluster width in pixels
+ * Cluster height and width in pixels
  */
-export const clusterWidth = 2208;
+export const clusterSize = {
+  height: 832 * sizeFactor,
+  width: 2208 * sizeFactor
+};
 
 /**
- * Cluster height in pixels
+ * Circular gauge height and width in pixels
  */
-export const clusterHeight = 832;
+export const circularGaugeSize = {
+  height: 828 * sizeFactor,
+  width: 886 * sizeFactor
+};
 
 /**
- * Circular gauge width in pixels
+ * Circular gauge dash height and width in pixels
  */
-export const circularGaugeWidth = 886;
-
-/**
- * Circular gauge height in pixels
- */
-export const circularGaugeHeight = 828;
-
-/**
- * Circular gauge dash width in pixels
- */
-export const circularGaugeDashWidth = 21;
-
-/**
- * Circular gauge dash height in pixels
- */
-export const circularGaugeDashHeight = 4;
+export const circularGaugeDashSize = {
+  height: 4 * sizeFactor,
+  width: 21 * sizeFactor
+};

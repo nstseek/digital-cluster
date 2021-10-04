@@ -2,12 +2,11 @@ import styled, { CSSObject } from 'styled-components/macro';
 
 import { backgroundColors } from '../colors';
 import { flexAlignCenter } from '../mixins';
-import { clusterHeight, clusterWidth, sizeFactor } from '../sizes';
+import { clusterSize } from '../sizes';
 import { px } from '../units/pixels';
 
 export const SInstrumentClusterBackground = styled.div((): CSSObject => {
-  const width = clusterWidth * sizeFactor;
-  const height = clusterHeight * sizeFactor;
+  const { width, height } = clusterSize;
   return {
     ...flexAlignCenter,
     position: 'absolute',

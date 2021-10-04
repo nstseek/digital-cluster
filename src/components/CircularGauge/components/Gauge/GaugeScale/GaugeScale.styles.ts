@@ -1,11 +1,7 @@
 import styled, { CSSObject } from 'styled-components/macro';
 
 import { defaultRed } from '../../../../../styled/colors';
-import {
-  circularGaugeDashHeight,
-  circularGaugeDashWidth,
-  sizeFactor
-} from '../../../../../styled/sizes';
+import { circularGaugeDashSize } from '../../../../../styled/sizes';
 import { px } from '../../../../../styled/units/pixels';
 import { getScaleFactor, innerContentStyles } from '../../../utils';
 
@@ -29,18 +25,13 @@ export const SGaugeDashContainer = styled.div<{ rotation: number; height: number
 
 export const SGaugeDash = styled.div<{ primary?: boolean; red?: boolean }>(
   ({ primary, red }): CSSObject => {
+    const { width, height } = circularGaugeDashSize;
     return {
       display: 'flex',
       backgroundColor: red ? defaultRed : 'white',
       opacity: primary ? 1 : red ? 0.8 : 0.6,
-      width: `${px(circularGaugeDashWidth * sizeFactor)}`,
-      height: `${px(
-        Math.round(
-          primary
-            ? circularGaugeDashHeight * sizeFactor
-            : (circularGaugeDashHeight * sizeFactor) / 2
-        )
-      )}`
+      width: `${px(width)}`,
+      height: `${px(Math.round(primary ? height : height / 2))}`
     };
   }
 );

@@ -1,14 +1,15 @@
 import styled, { CSSObject } from 'styled-components/macro';
 
 import { flexAlignCenter } from '../../styled/mixins';
-import { clusterHeight, clusterWidth, sizeFactor } from '../../styled/sizes';
+import { clusterSize } from '../../styled/sizes';
 import { px } from '../../styled/units/pixels';
 
-export const SContainer = styled.div(
-  (): CSSObject => ({
+export const SContainer = styled.div((): CSSObject => {
+  const { width, height } = clusterSize;
+  return {
     ...flexAlignCenter,
     position: 'absolute',
-    width: px(clusterWidth * sizeFactor),
-    height: px(clusterHeight * sizeFactor)
-  })
-);
+    width: px(width),
+    height: px(height)
+  };
+});
