@@ -20,3 +20,9 @@ export const innerContentStyles = (margin: number, background = false): CSSObjec
   width: `calc(100% - ${px(margin * 2)})`,
   height: `calc(100% - ${px(margin * 2)})`
 });
+
+export const getScaleFactor = (value1: number, value2: number) => {
+  const maxDimension = Math.max(value1, value2);
+  const minDimension = Math.min(value1, value2);
+  return [maxDimension / minDimension, maxDimension, minDimension];
+};

@@ -1,8 +1,14 @@
 import React, { useCallback, useState } from 'react';
 
 import { SInstrumentClusterBackground } from '../../../../styled/components/InstrumentClusterBackground';
-import { SGaugeBackgroundReset, SGrayGaugeScale } from '../../CircularGauge.styles';
-import { SGaugeContainer, SRedGaugeScale } from './Gauge.styles';
+import {
+  SGaugeBackgroundReset,
+  SGaugeContainer,
+  SGrayGaugeBorder,
+  SRedGaugeBorder
+} from './Gauge.styles';
+import { calculateGaugeClipPath, calculateGaugeConicGradient } from './GaugeFill.logic';
+import GaugeScale from './GaugeScale';
 
 interface Props {
   width: number;
@@ -11,6 +17,8 @@ interface Props {
 
 const Gauge: React.FC<Props> = ({ width, height }) => {
   const maxRpm = 8000;
+
+  const redLine = 6500;
 
   const [actualRpm, setActualRpm] = useState(0);
 
@@ -27,16 +35,21 @@ const Gauge: React.FC<Props> = ({ width, height }) => {
 
   const ResetBackground: React.FC = () => (
     <SGaugeBackgroundReset>
-      <SInstrumentClusterBackground onClick={() => setInterval(accelerate, 50)} />
+      <SInstrumentClusterBackground onClick={() => setInterval(accelerate, 1)} />
     </SGaugeBackgroundReset>
   );
   return (
     <>
-      <SGrayGaugeScale />
-      <SGaugeContainer width={width} height={height} percentage={percentage}>
-        <SRedGaugeScale percentage={percentage} />
+      <SGrayGaugeBorder />
+      <SGaugeContainer
+        style={{ clipPath: calculateGaugeClipPath(percentage) }}
+        width={width}
+        height={height}
+      >
+        <SRedGaugeBorder style={{ backgroundImage: calculateGaugeConicGradient(percentage) }} />
       </SGaugeContainer>
       <ResetBackground />
+      <GaugeScale maxRpm={maxRpm} redLine={redLine} />
     </>
   );
 };

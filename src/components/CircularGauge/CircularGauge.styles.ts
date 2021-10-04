@@ -19,13 +19,3 @@ export const SCircularGaugeOuterBorder = styled.div(
 );
 
 export const SOuterBorderBackgroundReset = styled.div((): CSSObject => innerContentStyles(3, true));
-
-export const SGrayGaugeScale = styled.div(
-  (): CSSObject => ({
-    ...innerContentStyles(10),
-    position: 'absolute',
-    backgroundImage: `radial-gradient(ellipse at center, #111 70%, #ddd 71.5%)`
-  })
-);
-
-export const SGaugeBackgroundReset = styled.div((): CSSObject => innerContentStyles(13, true));

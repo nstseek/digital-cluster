@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { SInstrumentClusterBackground } from '../../../../styled/components/InstrumentClusterBackground';
+import GaugeSize from '../../contexts/GaugeSize';
 import Gauge from '../Gauge';
 import {
   SBrighterThinBorder,
@@ -17,7 +18,7 @@ const ThickGaugeBorder = () => {
     </SThickBorderBackgroundReset>
   );
   const gaugeContainerId = 'gauge-container';
-  const [gaugeSize, setGaugeSize] = useState({
+  const [{ width, height }, setGaugeSize] = useState({
     width: 0,
     height: 0
   });
@@ -32,14 +33,16 @@ const ThickGaugeBorder = () => {
   }, []);
 
   return (
-    <SBrightThickBorder>
-      <SBrighterThinBorder>
-        <SBrightThickBorder inner id={gaugeContainerId}>
-          <ResetBackground />
-          <Gauge width={gaugeSize.width} height={gaugeSize.height} />
-        </SBrightThickBorder>
-      </SBrighterThinBorder>
-    </SBrightThickBorder>
+    <GaugeSize.Provider value={{ width, height }}>
+      <SBrightThickBorder>
+        <SBrighterThinBorder>
+          <SBrightThickBorder inner id={gaugeContainerId}>
+            <ResetBackground />
+            <Gauge width={width} height={height} />
+          </SBrightThickBorder>
+        </SBrighterThinBorder>
+      </SBrightThickBorder>
+    </GaugeSize.Provider>
   );
 };
 
